@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cozy AI · 跨境客服实时翻译工作台</title>
+<meta name="description" content="Cozy AI 把 ChatGPT、WhatsApp、Telegram、Facebook、Instagram、Teams、Google Voice、Snapchat 等 20+ 常用平台装进一个窗口：对方发什么语言，你看到的是中文；你打的中文，进输入框的是对方那门语言。发送前永远由你确认，支持个人到团队定制。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232ECC71'/%3E%3Cpath d='M9 12h14M9 17h9' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/styles.css">
+<noscript><style>[data-reveal],.bubble[data-anim]{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<div class="intro" id="intro">
+  <div class="intro-fill"></div>
+  <div class="intro-mark">
+    <svg viewBox="0 0 32 32" width="54" height="54" aria-hidden="true"><rect x="1" y="1" width="30" height="30" fill="#0C1310"/><path d="M8 12h16M8 17h10M8 22h13" stroke="#2ECC71" stroke-width="2.4"/></svg>
+    <span class="intro-word">Cozy AI</span>
+    <span class="intro-sub">跨境客服实时翻译</span>
+  </div>
+</div>
+
+<header class="topbar" id="topbar">
+  <a class="brand" href="#top">
+    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+      <rect x="1" y="1" width="30" height="30" fill="#2ECC71"/>
+      <path d="M8 12h16M8 17h10M8 22h13" stroke="#0C1310" stroke-width="2.4"/>
+    </svg>
+    <span class="brand-name">Cozy AI</span>
+    <span class="brand-tag">跨境客服翻译</span>
+  </a>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="#public" data-nav>公开版</a>
+    <a href="#features" data-nav>核心能力</a>
+    <a href="#demo" data-nav>界面演示</a>
+    <a href="#product" data-nav>产品界面</a>
+    <a href="#services" data-nav>定制服务</a>
+  </nav>
+
+  <div class="top-actions">
+    <a class="btn btn-primary" href="#download">下载公开版</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2"/></svg>
+      <span class="sr-only">菜单</span>
+    </button>
+  </div>
+  <div class="scroll-bar" id="scrollBar"></div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" hidden>
+  <a href="#public">公开版</a>
+  <a href="#features">核心能力</a>
+  <a href="#demo">界面演示</a>
+  <a href="#product">产品界面</a>
+  <a href="#services">定制服务</a>
+  <a href="#download">下载</a>
+  <a href="#faq">常见问题</a>
+</div>
+
+<main>
+
+  <section class="hero" id="top">
+    <canvas class="hero-fx" id="heroFx" aria-hidden="true"></canvas>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Cozy AI 聊天翻译</p>
+        <h1>GPT-原文翻译<br>聊天不再受语言阻碍</h1>
+        <p class="lead">WhatsApp、Telegram、Facebook、Teams…… 25+ 个常用平台多开</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#download">立即下载</a>
+          <a class="btn btn-ghost" href="#demo">翻译演示<svg class="btn-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h13M13 7l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </div>
+
+      <div class="hero-stage" aria-hidden="true">
+        <div class="window">
+          <div class="window-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="window-title">Cozy AI — 应用中心</span>
+          </div>
+          <div class="window-body">
+            <aside class="rail">
+              <span class="rail-item is-on" title="WhatsApp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 21l1.9-4.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 10c0 3 2 5 5 5 .8 0 1.2-.5 1-1.2l-1.2-.8-1 .7c-1-.5-1.8-1.3-2.2-2.3l.7-1-.8-1.2C9.4 8.7 9 9.2 9 10Z" fill="currentColor"/></svg></span>
+              <span class="rail-item" title="Telegram"><svg viewBox="0 0 24 24"><path d="M3 12 21 4l-3 16-5-4-3 3v-5Z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+              <span class="rail-item" title="Teams"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M17 9h4v6h-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+              <span class="rail-item" title="Signal"><svg viewBox="0 0 24 24"><path d="M4 18C3 12 6 5 12 4c6-1 11 4 9 10-.6 2.2-2 3.6-4 4.4L13 21l-1-3-4 1Z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+            </aside>
+            <div class="thread">
+              <div class="bubble in">
+                <p class="orig">Is the black one still in stock? I need 3 pcs before Friday.</p>
+                <p class="trans">黑色的还有现货吗？我需要在周五前拿到 3 件。</p>
+              </div>
+              <div class="bubble out">
+                <p class="trans">Yes, 12 in stock. I will ship tomorrow morning.</p>
+                <p class="orig">有，现货 12 件。我明天上午给你发货。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="stage-note">动图展示对比效果</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" id="stats">
+    <div class="stat"><span class="num" data-count="20">0</span><span class="unit">+ 个常用平台</span><p>应用页面完美融合，无需单独多出一个对话框</p></div>
+    <div class="stat"><span class="num">全球</span><span class="unit">主流语言</span><p>想翻成哪种就翻成哪种，双向随心译</p></div>
+    <div class="stat"><span class="num">精准</span><span class="unit">翻译</span><p>ChatGPT 文本处理模型，按原文准确翻译</p></div>
+    <div class="stat"><span class="num">定制</span><span class="unit">服务</span><p>个人用、团队用，都可以单独定制</p></div>
+  </section>
+
+  <section class="marquee">
+    <div class="mq-row">
+      <div class="mq-track">
+        <div class="mq-half">
+          <span class="mq-item"><em>AI 助手</em><i>›</i><b>ChatGPT</b></span>
+          <span class="mq-item"><em>即时通讯</em><i>›</i><b>WhatsApp</b></span>
+          <span class="mq-item"><em>即时通讯</em><i>›</i><b>Telegram</b></span>
+          <span class="mq-item"><em>社交</em><i>›</i><b>Facebook</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="mq-row rev">
+      <div class="mq-track">
+        <div class="mq-half">
+          <span class="mq-item"><em>社交</em><i>›</i><b>Instagram</b></span>
+          <span class="mq-item"><em>办公协作</em><i>›</i><b>Teams</b></span>
+          <span class="mq-item"><em>网络电话</em><i>›</i><b>Google Voice</b></span>
+          <span class="mq-item"><em>短视频社交</em><i>›</i><b>Snapchat</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="public" id="public">
+    <div class="pub-grid">
+      <div class="pub-copy">
+        <p class="eyebrow">Cozy AI 聊天翻译</p>
+        <h2>降低聊天翻译成本<br>提高聊天翻译效率</h2>
+        <p class="lead">接入ChatGPT-文本处理模型，翻译快、准、稳。字啊提高效率的同时，降低多账号使用翻译器的成本</p>
+        <div class="pub-cta">
+          <a class="btn btn-primary btn-lg" href="#download">下载Cozy AI翻译</a>
+          <a class="btn btn-ghost" href="#demo">先看它怎么工作</a>
+        </div>
+        <p class="pub-need">支持系统：Windows 10 / 11 64 位 家庭版、企业版<span class="todo">联系客服获得20000字符试用</span></p>
+      </div>
+      <ul class="pub-list" data-reveal>
+        <li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>WhatsApp、Telegram、Facebook、Instagram、Teams 等 25+应用</span></li>
+        <li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>每个多开窗口独立指纹，有效防封</span></li>
+        <li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>全球主流语言双向翻译，原文与译文同条显示</span></li>
+        <li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>禁发中文开关，含中文当场拦下</span></li>
+        <li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>支持团队深度定制，7*12小时为你提供服务</span></li>
+        <li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>翻译规则、专业术语支持自定义修改</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="features">
+    <div class="band-head reveal-mask" data-reveal>
+      <p class="eyebrow">核心能力</p>
+      <h2>真前端运行<br>防止设备或账号指纹关联导致封号</h2>
+    </div>
+    <div class="feature-list">
+      <div class="feature" data-reveal>
+        <svg class="f-ico fx fx-win" viewBox="0 0 32 32" aria-hidden="true">
+          <rect class="pane p1" x="3" y="6" width="12" height="10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <rect class="pane p2" x="17" y="6" width="12" height="10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <rect class="pane p3" x="3" y="18" width="12" height="10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <rect class="pane p4" x="17" y="18" width="12" height="10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+        <h3>一个应用，支持25+ 平台聊天翻译</h3>
+        <p>WhatsApp、Telegram、Facebook、Instagram、Teams、Google Voice、Snapchat 等常用平台，封闭桌面程序走独立实例。每个账号一个独立登录分区余志文，cookie数据与本地数据互不可见</p>
+      </div>
+      <div class="feature" data-reveal>
+        <svg class="f-ico fx fx-swap" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="3" y="7" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <text class="glyph g-zh" x="12" y="20">中</text>
+          <text class="glyph g-en" x="12" y="20">A</text>
+          <path class="fx-arrow" d="M24 16h5M26.5 12.5 30 16l-3.5 3.5" fill="none" stroke="#2ECC71" stroke-width="2"/>
+        </svg>
+        <h3>全球主流语言双向翻译</h3>
+        <p>无论对方什么语言，都可以翻译为你的语言，无论你说什么语言，都能翻译为对方的语言，双语互译，聊天没有压力</p>
+      </div>
+      <div class="feature" data-reveal>
+        <svg class="f-ico fx fx-term" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M5 8h18v11H12l-5 4v-4H5z" fill="none" stroke="currentColor" stroke-width="1.9"/>
+          <path d="M9 13h13" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <rect class="t-lock" x="9" y="11.7" width="6" height="2.6" fill="#2ECC71"/>
+          <path class="t-mark" d="M18 22l2 2 4-4" fill="none" stroke="#2ECC71" stroke-width="2"/>
+        </svg>
+        <h3>专业术语绝不出错</h3>
+        <p>支持存入常用专业属于表，翻译0失误</p>
+      </div>
+      <div class="feature" data-reveal>
+        <svg class="f-ico fx fx-block" viewBox="0 0 32 32" aria-hidden="true">
+          <text class="glyph bl-zh" x="7" y="22">中</text>
+          <path class="bl-strike" d="M1 16h12" fill="none" stroke="#C0392B" stroke-width="2.2"/>
+          <rect x="18" y="12" width="12" height="8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <rect class="bl-knob" x="19.6" y="13.6" width="4.8" height="4.8" fill="#2ECC71"/>
+        </svg>
+        <h3>禁发中文开关</h3>
+        <p>专为中文用户设计，防止中文信息发出，让客户产生疑虑</p>
+      </div>
+      <div class="feature" data-reveal>
+        <svg class="f-ico fx fx-team" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="12" cy="10" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M4 26c1-5 4-7 8-7s7 2 8 7" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle class="mate" cx="23" cy="11" r="3.2" fill="none" stroke="#2ECC71" stroke-width="2"/>
+          <path class="mate" d="M23 18c2.6 0 4.4 1.8 5 5" fill="none" stroke="#2ECC71" stroke-width="2"/>
+        </svg>
+        <h3>个人到团队定制</h3>
+        <p>去除繁杂功能和多余应用，深度定制UI与程序图标，支持无终端运行，彻底杜绝电脑中毒与客户被盗的风险</p>
+      </div>
+      <div class="feature" data-reveal>
+        <svg class="f-ico fx fx-check" viewBox="0 0 32 32" aria-hidden="true">
+          <path class="sh-out" d="M16 4l10 4v8c0 6-4 10-10 12C10 26 6 22 6 16v-8z" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path class="sh-mark" d="M11 16l4 4 7-8" fill="none" stroke="#2ECC71" stroke-width="2.4"/>
+        </svg>
+        <h3>反馈就能得到更新</h3>
+        <p>反馈就有回复，发现问题就能得到解决，不被同样的问题多次困扰</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo" id="demo">
+    <div class="band-head reveal-mask" data-reveal>
+      <p class="eyebrow">功能展示</p>
+      <h2>禁发中文<br>模拟多平台</h2>
+      <p class="head-note">下面这段是<strong>英语-中文翻译展示</strong>同时展示<strong>禁发中文功能</strong>鼠标停在上面会暂停哦</p>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="stage-tabs" id="stageTabs">
+        <button class="tab is-on" type="button" data-plat="whatsapp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 21l1.9-4.6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>WhatsApp</button>
+        <button class="tab" type="button" data-plat="telegram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 21 4l-3 16-5-4-3 3v-5Z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Telegram</button>
+        <button class="tab" type="button" data-plat="teams">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M17 9h4v6h-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Teams</button>
+        <button class="tab" type="button" data-plat="signal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18C3 12 6 5 12 4c6-1 11 4 9 10-.6 2.2-2 3.6-4 4.4L13 21l-1-3-4 1Z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Signal</button>
+      </div>
+
+      <div class="stage-body">
+        <div class="stage-chat">
+          <div class="demo-head">
+            <span class="live" aria-hidden="true"></span><span class="platform" id="platName">WhatsApp</span>
+            <span class="switch" id="demoSwitch"><span class="track"><span class="thumb"></span></span><span class="switch-text">禁发中文</span></span>
+          </div>
+          <div class="thread demo-thread" id="demoThread"></div>
+          <div class="composer" id="composer">
+            <span class="composer-tag">输入框</span>
+            <span class="composer-text" id="composerText"></span><span class="caret is-off" id="caret"></span>
+          </div>
+          <p class="composer-note" id="composerNote">演示循环播放 · 页面不联网</p>
+        </div>
+
+        <div class="stage-side">
+          <p class="side-title" id="landTitle">输入原文后，回车键自动翻译</p>
+          <ul class="side-list" id="landList"></ul>
+          <p class="stage-flag">演示动画仅作功能展示</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="product">
+    <div class="band-head reveal-mask" data-reveal>
+      <p class="eyebrow">产品界面</p>
+      <h2>界面截图</h2>
+    </div>
+    <div class="shots">
+      <div class="shots-track" role="group" aria-label="产品界面截图，可左右滑动">
+        <figure class="shot" data-reveal>
+          <div class="shot-slot" data-shot="assets/img/应用中心.jpg">
+            <img alt="企业版应用中心" loading="lazy">
+            <span class="slot-label">待放图 · 应用中心.jpg</span>
+          </div>
+          <figcaption>应用中心详细分类</figcaption>
+        </figure>
+        <figure class="shot" data-reveal>
+          <div class="shot-slot" data-shot="assets/img/聊天区双语气泡.jpg">
+            <img alt="聊天双语气泡" loading="lazy">
+            <span class="slot-label">待放图 · 聊天区双语气泡.jpg</span>
+          </div>
+          <figcaption>聊天区原文译文都看得懂</figcaption>
+        </figure>
+        <figure class="shot" data-reveal>
+          <div class="shot-slot" data-shot="assets/img/设置页.jpg">
+            <img alt="团队设置与额度" loading="lazy">
+            <span class="slot-label">待放图 · 设置页.jpg</span>
+          </div>
+          <figcaption>设置翻译规则与专业术语自定义</figcaption>
+        </figure>
+      </div>
+      <div class="shots-ctl" hidden>
+        <button class="shot-nav is-prev" type="button" aria-label="上一张截图">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </button>
+        <div class="shots-dots"></div>
+        <button class="shot-nav is-next" type="button" aria-label="下一张截图">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="services">
+    <div class="band-head reveal-mask" data-reveal>
+      <p class="eyebrow">定制服务</p>
+      <h2>公开版之外<br>你还可以得到</h2>
+      <p class="head-note">团队定制、术语固定、英语缩写与真实常用语固定翻译</p>
+    </div>
+    <div class="svc">
+      <div class="svc-item" data-reveal>
+        <div class="svc-head">
+          <span class="svc-tag">
+            <svg class="f-ico sm fx fx-deploy" viewBox="0 0 32 32" aria-hidden="true">
+              <rect x="11" y="3" width="10" height="7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <rect x="3" y="22" width="10" height="7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <rect x="19" y="22" width="10" height="7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M16 10v6M16 16H8v6M16 16h8v6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+              <rect class="node n1" x="12.6" y="4.6" width="6.8" height="3.8" fill="#2ECC71"/>
+              <rect class="node n2" x="4.6" y="23.6" width="6.8" height="3.8" fill="#2ECC71"/>
+              <rect class="node n3" x="20.6" y="23.6" width="6.8" height="3.8" fill="#2ECC71"/>
+            </svg>
+            <h3>团队部署</h3>
+          </span>
+          <p class="svc-price"><span class="todo">按按量收费</span><span class="per"></span></p>
+        </div>
+        <p class="svc-for">给需要翻译的的多人团队</p>
+        <ul class="svc-list">
+          <li>无需担心续费价格，全程透明，降低使用成本</li>
+          <li>发现问题立即反馈，问题引刃而解</li>
+          <li>术语表和界面配置统一下发</li>
+          <li>更新包用完即焚，无终端运行，团队封闭式使用</li>
+        </ul>
+        <a class="btn btn-quiet" href="#contact">联系我们</a>
+      </div>
+      <div class="svc-item" data-reveal>
+        <div class="svc-head">
+          <span class="svc-tag">
+            <svg class="f-ico sm fx fx-custom" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M3 9h26M3 16h26M3 23h26" fill="none" stroke="currentColor" stroke-width="1.6"/>
+              <rect class="knob k1" x="8" y="6" width="5" height="6" fill="#2ECC71"/>
+              <rect class="knob k2" x="18" y="13" width="5" height="6" fill="#2ECC71"/>
+              <rect class="knob k3" x="12" y="20" width="5" height="6" fill="#2ECC71"/>
+            </svg>
+            <h3>功能定制</h3>
+          </span>
+          <p class="svc-price"><span class="todo">按需报价（买断）</span></p>
+        </div>
+        <p class="svc-for">额外功能可定制</p>
+        <ul class="svc-list">
+          <li>接入私有翻译服务或自有模型</li>
+          <li>增减平台渠道</li>
+          <li>品牌界面定制</li>
+          <li>其他功能</li>
+        </ul>
+        <a class="btn btn-quiet" href="#contact">提需求</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="download">
+    <div class="dl">
+      <div>
+        <p class="eyebrow">立即下载</p>
+        <h2>Windows 10 / 11，64 位</h2>
+        <ul class="dl-meta">
+          <li>安装包：<span class="todo">CozyAI-Setup-x.y.z.exe · 0.1.42</span></li>
+          <li>大小与版本：<span class="todo">140M</span></li>
+          <li>更新方式：<span class="todo">直接更新</span></li>
+        </ul>
+      </div>
+      <div class="dl-box">
+        <svg class="f-ico lg fx fx-dl" viewBox="0 0 32 32" aria-hidden="true">
+          <path class="dl-arrow" d="M16 3v14M10 12l6 6 6-6" fill="none" stroke="#2ECC71" stroke-width="2.2"/>
+          <path d="M4 21v6a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="1.9"/>
+          <rect class="dl-tray" x="4" y="20" width="24" height="2.6" fill="currentColor"/>
+        </svg>
+        <p class="dl-note">如遇无法安装，可尝试重启电脑后者及时反馈</p>
+        <a class="btn btn-primary btn-lg" href="#" id="dlBtn">点击下载</a>
+        <p class="dl-tiny">文件名 <span class="todo">CozyAI-Setup-x.y.z.exe 0.1.42</span> · 暂无MAC版本<span class="todo">敬请期待</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="faq">
+    <div class="band-head reveal-mask" data-reveal>
+      <p class="eyebrow">常见问题</p>
+      <h2>先回答被问得最多的几个</h2>
+    </div>
+    <div class="faqs">
+      <details data-reveal>
+        <summary>多个账号会不会互相关联？</summary>
+        <p>每个账号使用独立的持久化分区，A 账号写进本地存储和 cookie 的内容，B 账号读不到。每个账号独立指纹与cookie数据</p>
+      </details>
+      <details data-reveal>
+        <summary>翻译引擎是什么？</summary>
+        <p>使用ChatGPT专业文本处理模型</p>
+      </details>
+      <details data-reveal>
+        <summary>它会自己把消息发出去吗？</summary>
+        <p>不会。译文只负责进入应用的输入框，发送按钮自己按</p>
+      </details>
+      <details data-reveal>
+        <summary>Signal 也能自动填进输入框吗？</summary>
+        <p>是的，全新的技术融合将Signal的页面融合进了Cozy AI 翻译器，做到真正的即时翻译体验</p>
+      </details>
+      <details data-reveal>
+        <summary>支持哪些语言？</summary>
+        <p>全球主流语言双向翻，具体翻成哪种由对方和自己使用的语言决定</p>
+      </details>
+      <details data-reveal>
+        <summary>翻译会被改写成"更好听"的说法吗？</summary>
+        <p>做到真正的原文翻译，你想说什么，翻译的结果就是什么</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <svg class="f-ico lg fx fx-mail" viewBox="0 0 32 32" aria-hidden="true">
+      <rect x="3" y="10" width="26" height="16" fill="none" stroke="currentColor" stroke-width="1.9"/>
+      <path class="flap" d="M3 10l13 9 13-9" fill="none" stroke="currentColor" stroke-width="1.9"/>
+      <circle class="ping" cx="27" cy="8" r="4" fill="#2ECC71"/>
+    </svg>
+    <h2>功能不够用？</h2>
+    <p>联系我们，将你想要的功能一起放进去吧！</p>
+    <div class="contact-links">
+     <a class="btn btn-primary" href="https://t.me/alex168680" target="_blank" rel="noopener">TG：@alex168680</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p class="foot-brand">Cozy AI</p>
+    <p class="foot-copy">© 2026 <span class="todo">Cozy AI 翻译</span></p>
+    <nav class="foot-links">
+      <a href="#public">公开版</a>
+      <a href="#features">核心能力</a>
+      <a href="#services">定制服务</a>
+      <a href="#download">下载</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <figure class="lb-fig" id="lbFig"><img alt="产品界面大图" id="lbImg"></figure>
+  <button class="lb-close" id="lbClose" type="button">关闭 <span aria-hidden="true">Esc</span></button>
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
